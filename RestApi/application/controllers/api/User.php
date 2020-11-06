@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Edited for project!
+ * status: ready
+ * tested: yes
+ */
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
@@ -85,19 +91,21 @@ class User extends REST_Controller {
     public function user_post()
     {
         // Add a new user
-        $clear_password=$this->post('password');
+        $clear_password=$this->post('card_pin');
         $encrypted_pass = password_hash($clear_password,PASSWORD_DEFAULT);
         $add_data=array(
-          'username'=>$this->post('username'),
-          'password'=>$encrypted_pass
+          'card_id'=>$this->post('card_id'),
+          'card_pin'=>$encrypted_pass,
+          'owner'=>$this->post('owner')
         );
         $insert_id=$this->User_model->add_user($add_data);
         if($insert_id)
         {
             $message = [
-                'id_user' => $insert_id,
-                'username' => $this->post('username'),
-                'password' => $this->post('password'),
+                'idUser' => $insert_id,
+                'card_id' => $this->post('card_id'),
+                'card_pin' => $this->post('card_pin'),
+                'owner' => $this->post('owner'),
                 'message' => 'Added a resource'
             ];
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -116,20 +124,22 @@ class User extends REST_Controller {
     {
         // Update the user
         $id=$this->get('id');
-        $clear_password=$this->post('password');
+        $clear_password=$this->put('card_pin');
         $encrypted_pass = password_hash($clear_password,PASSWORD_DEFAULT);
         $update_data=array(
-          'username'=>$this->post('username'),
-          'password'=>$encrypted_pass
+          'card_id'=>$this->put('card_id'),
+          'card_pin'=>$encrypted_pass,
+          'owner'=>$this->put('owner')
         );
         $result=$this->User_model->update_user($id, $update_data);
 
         if($result)
         {
           $message = [
-              'id_user' => $insert_id,
-              'username' => $this->post('username'),
-              'password' => $this->post('password'),
+              'idUser' => $id,
+              'card_id' => $this->put('card_id'),
+              'card_pin' => $this->put('card_pin'),
+              'owner' => $this->put('owner'),
               'message' => 'Added a resource'
           ];
 
@@ -159,7 +169,7 @@ class User extends REST_Controller {
         if ($result)
         {
           $message = [
-              'id_user' => $id,
+              'idUser' => $id,
               'message' => 'Deleted the resource'
           ];
           $this->set_response($message, REST_Controller::HTTP_OK);
