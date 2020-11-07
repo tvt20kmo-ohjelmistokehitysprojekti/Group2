@@ -15,6 +15,13 @@ public:
     explicit Menu(QWidget *parent = 0);
     ~Menu();
 
+private slots:
+    void on_pushButton_withdrawal_clicked();
+
+    void on_pushButton_balance_clicked();
+
+    void on_pushButton_log_clicked();
+
 private:
     Ui::Menu *ui;
 };

@@ -12,3 +12,8 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_pushButton_login_clicked()
+{
+    //Lisää tähän kirjaudu-napin toiminnot
+}

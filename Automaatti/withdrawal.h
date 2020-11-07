@@ -15,6 +15,19 @@ public:
     explicit withdrawal(QWidget *parent = 0);
     ~withdrawal();
 
+private slots:
+    void on_pushButton_20e_clicked();
+
+    void on_pushButton_40e_clicked();
+
+    void on_pushButton_50e_clicked();
+
+    void on_pushButton_100e_clicked();
+
+    void on_pushButton_enterAmount_clicked();
+
+    void on_pushButton_menu_clicked();
+
 private:
     Ui::withdrawal *ui;
 };
