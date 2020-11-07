@@ -1,6 +1,8 @@
 <?php
 /**
- *
+ * Edited for project!
+ * status: ready
+ * tested: yes
  */
 class Log_model extends CI_model
 {
@@ -21,7 +23,7 @@ class Log_model extends CI_model
       return FALSE;
     }  
   }
-  function update_book($id, $update_data){
+  function update_log($id, $update_data){
     $this->db->where('idLog',$id);
     $this->db->update('log',$update_data);
     if($this->db->affected_rows()>0){
@@ -32,7 +34,7 @@ class Log_model extends CI_model
     }
   }
 
-  function delete_book($id){
+  function delete_log($id){
     $this->db->where('idLog',$id);
     $this->db->delete('log');
     if($this->db->affected_rows()>0){
