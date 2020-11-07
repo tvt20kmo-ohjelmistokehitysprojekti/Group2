@@ -2,18 +2,18 @@
 /**
  *
  */
-class User_model extends CI_model
+class Account_model extends CI_model
 {
   function get_account($id){
     $this->db->select('*');
-    $this->db->from('user');
+    $this->db->from('account');
     if($id !== NULL) {
-      $this->db->where('id_user',$id);
+      $this->db->where('idAccount',$id);
     }
     return $this->db->get()->result_array();
   }
-  function add_user($add_data){
-    $this->db->insert('user',$add_data);
+  function add_account($add_data){
+    $this->db->insert('account',$add_data);
     if($this->db->insert_id()!==NULL){
       return $this->db->insert_id();
     }
@@ -21,9 +21,9 @@ class User_model extends CI_model
       return FALSE;
     }
   }
-  function update_user($id, $update_data){
-    $this->db->where('id_user',$id);
-    $this->db->update('user',$update_data);
+  function update_account($id, $update_data){
+    $this->db->where('idAccount',$id);
+    $this->db->update('account',$update_data);
     if($this->db->affected_rows()>0){
       return TRUE;
     }
@@ -32,9 +32,9 @@ class User_model extends CI_model
     }
   }
 
-  function delete_user($id){
-    $this->db->where('id_user',$id);
-    $this->db->delete('user');
+  function delete_account($id){
+    $this->db->where('idAccount',$id);
+    $this->db->delete('account');
     if($this->db->affected_rows()>0){
       return TRUE;
     }
@@ -42,12 +42,4 @@ class User_model extends CI_model
       return FALSE;
     }
   }
-
-  function check_login($username){
-    $this->db->select('password');
-    $this->db->from('user');
-    $this->db->where('username',$username);
-    return $this->db->get()->row('password');
-  }
-
 }
