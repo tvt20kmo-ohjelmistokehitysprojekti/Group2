@@ -1,6 +1,8 @@
 <?php
 /**
- *
+ * Edited for project!
+ * status: ready
+ * tested: yes
  */
 class Account_model extends CI_model
 {

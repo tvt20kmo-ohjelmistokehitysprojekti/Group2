@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Edited for project!
+ * status: ready
+ * tested: yes
+ */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
@@ -89,7 +93,6 @@ class Account extends REST_Controller {
           'account_number'=>$this->post('account_number'),
           'account_balance'=>$this->post('account_balance'),
           'idUser'=>$this->post('idUser')
-          //join
         );
         $insert_id=$this->Account_model->add_account($add_data);
         if($insert_id)
@@ -99,7 +102,6 @@ class Account extends REST_Controller {
                 'account_number' => $this->post('account_number'),
                 'account_balance' => $this->post('account_balance'),
                 'idUser'=>$this->post('idUser'),
-                //join
                 'message' => 'Added a resource'
             ];
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -121,7 +123,7 @@ class Account extends REST_Controller {
         $update_data=array(
             'account_number'=>$this->put('account_number'),
             'account_balance'=>$this->put('account_balance'),
-            //join
+            'idUser' => $this->put('idUser')
         );
         $result=$this->Account_model->update_account($id, $update_data);
 
@@ -131,7 +133,7 @@ class Account extends REST_Controller {
               'idAccount' => $id,
               'account_number' => $this->put('account_number'),
               'account_balance' => $this->put('account_balance'),
-              //join
+              'idUser' => $this->put('idUser'),
               'message' => 'Updates a resource'
           ];
 

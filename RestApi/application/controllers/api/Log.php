@@ -1,6 +1,8 @@
 <?php
 /**
- * post/put method "date()" needs editing, how?
+ * Edited for project!
+ * status: ready
+ * tested: yes
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -87,16 +89,20 @@ class Log extends REST_Controller {
     public function log_post()
     {
         // Add a new Log data
+        $date=date("Y-m-d");
         $add_data=array(
           'event'=>$this->post('event'),
+          'date' =>$date,
+          'idAccount' => $this->post('idAccount')
         );
         $insert_id=$this->Log_model->add_log($add_data);
         if($insert_id)
         {
             $message = [
                 'idLog' => $insert_id,
-                'event'=>$this->put('event'),
-                date(),
+                'event'=>$this->post('event'),
+                'date' =>$this->post('date'),
+                'idAccount' => $this->post('idAccount'),
                 'message' => 'Added a resource'
             ];
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -114,10 +120,12 @@ class Log extends REST_Controller {
     public function log_put()
     {
         // Update the log
+        $date=date("Y-m-d");
         $id=$this->get('id');
         $update_data=array(
           'event'=>$this->put('event'),
-          date()
+          'date' =>$date,
+          'idAccount' => $this->put('idAccount')
         );
         $result=$this->Log_model->update_log($id, $update_data);
 
@@ -126,7 +134,8 @@ class Log extends REST_Controller {
             $message = [
                 'id_book' => $id,
                 'event'=>$this->put('event'),
-                date(),
+                'date' =>$this->put('date'),
+                'idAccount' => $this->put('idAccount'),
                 'message' => 'Updates a resource'
             ];
 
