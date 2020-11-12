@@ -92,8 +92,7 @@ class Account extends REST_Controller {
         $add_data=array(
           'account_number'=>$this->post('account_number'),
           'account_balance'=>$this->post('account_balance'),
-          'idUser' => $this->post('idUser'),
-          
+          'idUser'=>$this->post('idUser')
         );
         $insert_id=$this->Account_model->add_account($add_data);
         if($insert_id)
@@ -102,8 +101,7 @@ class Account extends REST_Controller {
                 'idAccount' => $insert_id,
                 'account_number' => $this->post('account_number'),
                 'account_balance' => $this->post('account_balance'),
-                'idUser' => $this->post('idUser'),
-                
+                'idUser'=>$this->post('idUser'),
                 'message' => 'Added a resource'
             ];
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
