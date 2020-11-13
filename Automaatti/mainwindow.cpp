@@ -1,12 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QtNetwork/QNetworkRequest>
-#include <QtNetwork/qnetworkrequest.h>
-#include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/qnetworkaccessmanager.h>
-#include <QtNetwork/qnetworkreply.h>
+#include <QtNetwork>
+#include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <qjsondocument.h>
+
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -27,7 +25,7 @@ void MainWindow::on_pushButton_login_clicked()
     card_id=ui->lineEdit_cardID->text();
     card_pin=ui->lineEdit_PIN->text();
 
-    QNetworkRequest request(QUrl("http://localhost/RestApi/index.php/api/login/check_login/?card_id"+card_id+"&card_pin"+card_pin));
+    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/login/check_login/?card_id="+card_id+"&card_pin="+card_pin));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
         //Authenticate
         QString username="admin";
