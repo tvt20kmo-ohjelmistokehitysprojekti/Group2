@@ -38,3 +38,4 @@ FORMS += \
         mainwindow.ui \
     menu.ui \
     withdrawal.ui
+QT += network
