@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Ready for testing.
+ */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
@@ -17,27 +19,31 @@ require APPPATH . 'libraries/REST_Controller.php';
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class Account extends REST_Controller {
+class Withdraw extends REST_Controller {
 
-    public function account_put()
+    function __construct()
     {
-        // Update the account
-        $id=$this->get('id');
-        $update_data=array(
-            'account_number'=>$this->put('account_number'),
-            'account_balance'=>$this->put('account_balance'),
-            //join
-        );
-        $result=$this->Account_model->update_account($id, $update_data);
+        //enable cors
+        header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+        // Construct the parent class
+        parent::__construct();
+
+        $this->load->model('Withdraw_model');
+    }
+
+    public function withdraw_put()
+    {
+        $card=$this->put('card_id');
+        $amount=$this->put('amount');
+        $result=$this->Withdraw_model->Withdraw($card, $amount);
 
         if($result)
         {
           $message = [
-              'idAccount' => $id,
-              'account_number' => $this->put('account_number'),
-              'account_balance' => $this->put('account_balance'),
-              //join
-              'message' => 'Updates a resource'
+              'Withdraw from card' => $this->put('card_id'),
+              'Amount' => $this->put('amount'),
+              'message' => 'Withdrawal completed'
           ];
 
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -47,7 +53,7 @@ class Account extends REST_Controller {
             // Set the response and exit
             $this->response([
                 'status' => FALSE,
-                'message' => 'Can not update data'
+                'message' => 'Failed to withdraw'
             ], REST_Controller::HTTP_CONFLICT); // CAN NOT CREATE (409) being the HTTP response code
         }
     }
