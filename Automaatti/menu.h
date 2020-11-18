@@ -15,6 +15,9 @@ public:
     explicit Menu(QWidget *parent = 0);
     ~Menu();
 
+    QString getCardFromMain() const;
+    void setCardFromMain(const QString &value);
+
 private slots:
     void on_pushButton_withdrawal_clicked();
 
@@ -24,6 +27,7 @@ private slots:
 
 private:
     Ui::Menu *ui;
+    QString CardFromMain;
 };
 
 #endif // MENU_H

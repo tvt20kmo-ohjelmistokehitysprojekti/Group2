@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "menu.h"
 #include "ui_mainwindow.h"
 #include <QtNetwork/QNetworkRequest>
 #include <QtNetwork/qnetworkrequest.h>
@@ -49,22 +50,17 @@ void MainWindow::on_pushButton_login_clicked()
 
         reply->deleteLater();
 
-        /*if(response_data.compare("true")==0)
-        {
-            ui->label_test->setText("Right");
-        }
-        else
-        {
-            ui->label_test->setText("Wrong");
-        }*/
-
         if(response_data=="true")
         {
             ui->label_test->setText("Right");
+            mp=new Menu;
+            mp->setCardFromMain(card_id);
+            mp->show();
+            this->close();
         }
         else
         {
-            ui->label_test->setText("Wrong");
+            ui->label_test->setText("Kortin numero tai pinkoodi virheellinen");
         }
 
 
