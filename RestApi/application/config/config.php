@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/RestApi';               //Change when switching to mysli.oamk.fi db -VS
-//$config['base_url'] = 'https://www.students.oamk.fi/~t9sivi02/RestApi';
+//$config['base_url'] = 'https://www.students.oamk.fi/~xxxxx/RestApi';
 
 /*
 |--------------------------------------------------------------------------
