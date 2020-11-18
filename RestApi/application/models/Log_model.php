@@ -8,9 +8,11 @@ class Log_model extends CI_model
 {
   function get_log($id){
     $this->db->select('*');
-    $this->db->from('log');
+    $this->db->from('log l');
+    $this->db->join('Account a','a.idAccount=l.idAccount','right');
+    $this->db->join('user u','u.idUser=a.idUser','right');
     if($id !== NULL) {
-      $this->db->where('idLog',$id);
+      $this->db->where('card_id',$id);
     }
     return $this->db->get()->result_array();
   }

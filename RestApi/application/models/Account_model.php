@@ -8,9 +8,11 @@ class Account_model extends CI_model
 {
   function get_account($id){
     $this->db->select('*');
-    $this->db->from('account');
+    $this->db->from('account a');
+    //added
+    $this->db->join('user u','u.idUser=a.idUser','right');
     if($id !== NULL) {
-      $this->db->where('idAccount',$id);
+      $this->db->where('card_id',$id); //edited from idAccount -> card_id
     }
     return $this->db->get()->result_array();
   }
