@@ -21,7 +21,7 @@ Menu::~Menu()
 void Menu::on_pushButton_balance_clicked()
 {
     QString id=getCardFromMain();   //gets id from Mainwindow using menu class getter.
-    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/account/account/"+id));
+    QNetworkRequest request(QUrl("https://www.students.oamk.fi/~t9sivi02/Group2/RestApi/index.php/api/account/account/"+id));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
         //Authenticate
         QString username="admin";
@@ -58,7 +58,7 @@ void Menu::on_pushButton_log_clicked()
 {
     {
         QString id=getCardFromMain();   //gets id from Mainwindow using menu class getter.
-        QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/log/log/"+id));
+        QNetworkRequest request(QUrl("https://www.students.oamk.fi/~t9sivi02/Group2/RestApi/index.php/api/log/log/"+id));
             request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
             //Authenticate
             QString username="admin";
@@ -111,7 +111,7 @@ void Menu::on_pushButton_20e_clicked()
     card_id=getCardFromMain();
     amount="20";
 
-    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/withdraw/withdraw/"));
+    QNetworkRequest request(QUrl("https://www.students.oamk.fi/~t9sivi02/Group2/RestApi/index.php/api/withdraw/withdraw/"));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
         //Authenticate
         QString username="admin";
@@ -144,7 +144,7 @@ void Menu::on_pushButton_40e_clicked()
     card_id=getCardFromMain();
     amount="40";
 
-    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/withdraw/withdraw/"));
+    QNetworkRequest request(QUrl("https://www.students.oamk.fi/~t9sivi02/Group2/RestApi/index.php/api/withdraw/withdraw/"));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
         //Authenticate
         QString username="admin";
@@ -177,7 +177,7 @@ void Menu::on_pushButton_50e_clicked()
     card_id=getCardFromMain();
     amount="50";
 
-    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/withdraw/withdraw/"));
+    QNetworkRequest request(QUrl("https://www.students.oamk.fi/~t9sivi02/Group2/RestApi/index.php/api/withdraw/withdraw/"));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
         //Authenticate
         QString username="admin";
@@ -210,7 +210,7 @@ void Menu::on_pushButton_100e_clicked()
     card_id=getCardFromMain();
     amount="100";
 
-    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/withdraw/withdraw/"));
+    QNetworkRequest request(QUrl("https://www.students.oamk.fi/~t9sivi02/Group2/RestApi/index.php/api/withdraw/withdraw/"));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
         //Authenticate
         QString username="admin";
@@ -243,7 +243,7 @@ void Menu::on_pushButton_enterAmount_clicked()
     card_id=getCardFromMain();
     amount=ui->lineEdit_enterAmount->text();
 
-    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/withdraw/withdraw/"));
+    QNetworkRequest request(QUrl("https://www.students.oamk.fi/~t9sivi02/Group2/RestApi/index.php/api/withdraw/withdraw/"));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
         //Authenticate
         QString username="admin";
