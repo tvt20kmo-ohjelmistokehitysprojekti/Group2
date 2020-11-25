@@ -15,6 +15,7 @@ Menu::Menu(QWidget *parent) :
 Menu::~Menu()
 {
     delete ui;
+    delete wp;
 }
 
 void Menu::on_pushButton_withdrawal_clicked()

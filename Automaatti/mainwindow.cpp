@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete mp;
+    delete wp;
 }
 
 void MainWindow::on_pushButton_login_clicked()
@@ -55,6 +57,7 @@ void MainWindow::on_pushButton_login_clicked()
             ui->label_test->setText("Right");
             mp=new Menu;
             mp->setCardFromMain(card_id);
+            wp->setCardFromMain2(card_id);
             mp->show();
             this->close();
         }
