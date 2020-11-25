@@ -15,15 +15,7 @@ Menu::Menu(QWidget *parent) :
 Menu::~Menu()
 {
     delete ui;
-    delete wp;
-}
-
-void Menu::on_pushButton_withdrawal_clicked()
-{
-
-    wp=new withdrawal;
-    wp->show();
-    this->close();
+    ui=nullptr;
 }
 
 void Menu::on_pushButton_balance_clicked()
@@ -111,4 +103,169 @@ QString Menu::getCardFromMain() const
 void Menu::setCardFromMain(const QString &value)
 {
     CardFromMain = value;
+}
+
+void Menu::on_pushButton_20e_clicked()
+{
+    QString card_id, amount;
+    card_id=getCardFromMain();
+    amount="20";
+
+    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/withdraw/withdraw/"));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        //Authenticate
+        QString username="admin";
+        QString password="1234";
+        QString concatenatedCredentials = username + ":" + password;
+           QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
+           QString headerData = "Basic " + data;
+           request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+
+        QJsonObject json;
+        json.insert("card_id",card_id);
+        json.insert("amount",amount);
+        QNetworkAccessManager nam;
+        QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson());
+        while (!reply->isFinished())
+        {
+            qApp->processEvents();
+        }
+        QByteArray response_data = reply->readAll();
+        qDebug()<<response_data;
+        //ui->labelInfo->setText("Added : "+response_data);
+        reply->deleteLater();
+        on_pushButton_balance_clicked();
+        on_pushButton_log_clicked();
+}
+
+void Menu::on_pushButton_40e_clicked()
+{
+    QString card_id, amount;
+    card_id=getCardFromMain();
+    amount="40";
+
+    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/withdraw/withdraw/"));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        //Authenticate
+        QString username="admin";
+        QString password="1234";
+        QString concatenatedCredentials = username + ":" + password;
+           QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
+           QString headerData = "Basic " + data;
+           request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+
+        QJsonObject json;
+        json.insert("card_id",card_id);
+        json.insert("amount",amount);
+        QNetworkAccessManager nam;
+        QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson());
+        while (!reply->isFinished())
+        {
+            qApp->processEvents();
+        }
+        QByteArray response_data = reply->readAll();
+        qDebug()<<response_data;
+        //ui->labelInfo->setText("Added : "+response_data);
+        reply->deleteLater();
+        on_pushButton_balance_clicked();
+        on_pushButton_log_clicked();
+}
+
+void Menu::on_pushButton_50e_clicked()
+{
+    QString card_id, amount;
+    card_id=getCardFromMain();
+    amount="50";
+
+    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/withdraw/withdraw/"));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        //Authenticate
+        QString username="admin";
+        QString password="1234";
+        QString concatenatedCredentials = username + ":" + password;
+           QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
+           QString headerData = "Basic " + data;
+           request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+
+        QJsonObject json;
+        json.insert("card_id",card_id);
+        json.insert("amount",amount);
+        QNetworkAccessManager nam;
+        QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson());
+        while (!reply->isFinished())
+        {
+            qApp->processEvents();
+        }
+        QByteArray response_data = reply->readAll();
+        qDebug()<<response_data;
+        //ui->labelInfo->setText("Added : "+response_data);
+        reply->deleteLater();
+        on_pushButton_balance_clicked();
+        on_pushButton_log_clicked();
+}
+
+void Menu::on_pushButton_100e_clicked()
+{
+    QString card_id, amount;
+    card_id=getCardFromMain();
+    amount="100";
+
+    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/withdraw/withdraw/"));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        //Authenticate
+        QString username="admin";
+        QString password="1234";
+        QString concatenatedCredentials = username + ":" + password;
+           QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
+           QString headerData = "Basic " + data;
+           request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+
+        QJsonObject json;
+        json.insert("card_id",card_id);
+        json.insert("amount",amount);
+        QNetworkAccessManager nam;
+        QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson());
+        while (!reply->isFinished())
+        {
+            qApp->processEvents();
+        }
+        QByteArray response_data = reply->readAll();
+        qDebug()<<response_data;
+        //ui->labelInfo->setText("Added : "+response_data);
+        reply->deleteLater();
+        on_pushButton_balance_clicked();
+        on_pushButton_log_clicked();
+}
+
+void Menu::on_pushButton_enterAmount_clicked()
+{
+    QString card_id, amount;
+    card_id=getCardFromMain();
+    amount=ui->lineEdit_enterAmount->text();
+
+    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/withdraw/withdraw/"));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        //Authenticate
+        QString username="admin";
+        QString password="1234";
+        QString concatenatedCredentials = username + ":" + password;
+           QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
+           QString headerData = "Basic " + data;
+           request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+
+        QJsonObject json;
+        json.insert("card_id",card_id);
+        json.insert("amount",amount);
+        QNetworkAccessManager nam;
+        QNetworkReply *reply = nam.put(request, QJsonDocument(json).toJson());
+        while (!reply->isFinished())
+        {
+            qApp->processEvents();
+        }
+        QByteArray response_data = reply->readAll();
+        qDebug()<<response_data;
+        //ui->labelInfo->setText("Added : "+response_data);
+        reply->deleteLater();
+        on_pushButton_balance_clicked();
+        on_pushButton_log_clicked();
 }

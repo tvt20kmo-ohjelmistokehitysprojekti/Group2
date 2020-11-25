@@ -1,7 +1,8 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "withdrawal.h"
+
+
 
 #include <QWidget>
 
@@ -21,16 +22,24 @@ public:
     void setCardFromMain(const QString &value);
 
 private slots:
-    void on_pushButton_withdrawal_clicked();
 
     void on_pushButton_balance_clicked();
 
     void on_pushButton_log_clicked();
 
+    void on_pushButton_20e_clicked();
+
+    void on_pushButton_40e_clicked();
+
+    void on_pushButton_50e_clicked();
+
+    void on_pushButton_100e_clicked();
+
+    void on_pushButton_enterAmount_clicked();
+
 private:
     Ui::Menu *ui;
     QString CardFromMain;
-    withdrawal *wp;
 };
 
 #endif // MENU_H
