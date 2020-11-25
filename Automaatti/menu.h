@@ -1,6 +1,8 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include "withdrawal.h"
+
 #include <QWidget>
 
 namespace Ui {
@@ -28,6 +30,7 @@ private slots:
 private:
     Ui::Menu *ui;
     QString CardFromMain;
+    withdrawal *wp;
 };
 
 #endif // MENU_H

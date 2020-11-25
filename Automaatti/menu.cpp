@@ -19,7 +19,10 @@ Menu::~Menu()
 
 void Menu::on_pushButton_withdrawal_clicked()
 {
-    //Lisää tähän nosto-napin toiminnot
+
+    wp=new withdrawal;
+    wp->show();
+    this->close();
 }
 
 void Menu::on_pushButton_balance_clicked()
