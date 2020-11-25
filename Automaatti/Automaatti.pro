@@ -26,16 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    menu.cpp \
-    withdrawal.cpp
+    menu.cpp
 
 HEADERS += \
         mainwindow.h \
-    menu.h \
-    withdrawal.h
+    menu.h
 
 FORMS += \
         mainwindow.ui \
-    menu.ui \
-    withdrawal.ui
+    menu.ui
 QT += network
