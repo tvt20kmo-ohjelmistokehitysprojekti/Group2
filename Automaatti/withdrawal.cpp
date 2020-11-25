@@ -178,3 +178,13 @@ void withdrawal::on_pushButton_menu_clicked()
 {
     //Lisää tähän toiminnot, jolla päästään withdrawal-valikosta menu-valikkoon
 }
+
+QString withdrawal::getCardFromMain2() const
+{
+    return CardFromMain2;
+}
+
+void withdrawal::setCardFromMain2(const QString &value)
+{
+    CardFromMain2 = value;
+}
