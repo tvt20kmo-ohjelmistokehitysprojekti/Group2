@@ -31,7 +31,7 @@ void MainWindow::on_pushButton_login_clicked()
     card_id=ui->lineEdit_cardID->text();
     card_pin=ui->lineEdit_PIN->text();
 
-    QNetworkRequest request(QUrl("http://localhost/Group2/RestApi/index.php/api/login/check_login/?card_id="+card_id+"&card_pin="+card_pin));
+    QNetworkRequest request(QUrl("https://www.students.oamk.fi/~t9sivi02/Group2/RestApi/index.php/api/login/check_login/?card_id="+card_id+"&card_pin="+card_pin));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
         //Authenticate
         QString username="admin";
