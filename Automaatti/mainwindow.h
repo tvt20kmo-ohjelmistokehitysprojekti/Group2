@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <menu.h>
+#include <withdrawal.h>
 #include <QMainWindow>
 
 namespace Ui {
@@ -21,6 +22,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Menu *mp;
+    withdrawal *wp;
 };
 
 #endif // MAINWINDOW_H

@@ -15,6 +15,9 @@ public:
     explicit withdrawal(QWidget *parent = 0);
     ~withdrawal();
 
+    QString getCardFromMain2() const;
+    void setCardFromMain2(const QString &value);
+
 private slots:
     void on_pushButton_20e_clicked();
 
@@ -30,6 +33,7 @@ private slots:
 
 private:
     Ui::withdrawal *ui;
+    QString CardFromMain2;
 };
 
 #endif // WITHDRAWAL_H
